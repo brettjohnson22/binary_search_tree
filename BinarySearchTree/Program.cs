@@ -23,8 +23,14 @@ namespace BinarySearchTree
             tree.Add(11);
             tree.Add(1);
             tree.Add(2);
-            Console.WriteLine(tree);
+            int[] tester = new int[17] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 25 };
+            foreach(int number in tester)
+            {
+                bool found = tree.Search(number);
+                Console.Write($"Found {number}? {found}\n");
+            }
             Console.ReadLine();
+            
         }
     }
 }

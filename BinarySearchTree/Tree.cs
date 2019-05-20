@@ -28,7 +28,7 @@ namespace BinarySearchTree
                 return;
             }
             node = root;
-            while ((node.leftBranch != null && node.rightBranch != null) || (data < node.data && node.leftBranch == null) || (data > node.data && node.rightBranch == null))
+            while(true)
             {
                 if (data < node.data)
                 {
@@ -58,6 +58,57 @@ namespace BinarySearchTree
                 }
             }
         }
+        public bool Search(int data)
+        {
+            bool found = false;
+            Node node;
+            if (root == null)
+            {
+                return found;
+            }
+            node = root;
+            while(true)
+            {
+                if (data < node.data)
+                {
+                    while (node.leftBranch != null)
+                    {
+                        node = node.leftBranch;
+                        break;
+                    }
+                    while (node.rightBranch != null && data > node.rightBranch.data)
+                    {
+                        node = node.rightBranch;
+                        break;
+                    }
+                }
+                if (data > node.data)
+                {
+                    while (node.rightBranch != null)
+                    {
+                        node = node.rightBranch;
+                        break;
+                    }
+                    while (node.leftBranch != null && data < node.leftBranch.data)
+                    {
+                        node = node.leftBranch;
+                        break;
+                    }
+                }
+                if (node.leftBranch == null && data < node.data)
+                {
+                    return found;
+                }
+                if (node.rightBranch == null && data > node.data)
+                {
+                    return found;
+                }
+                if (data == node.data)
+                {
+                    found = true;
+                    return found;
+                }
+            }
+        }
     }
 }
-
