@@ -38,7 +38,7 @@ namespace BinarySearchTree
                         break;
                     }
                 }
-                if (data > node.data)
+                if (data >= node.data)
                 {
                     while (node.rightBranch != null)
                     {
@@ -51,7 +51,7 @@ namespace BinarySearchTree
                     node.leftBranch = temp;
                     return;
                 }
-                if (node.rightBranch == null && data > node.data)
+                if (node.rightBranch == null && data >= node.data)
                 {
                     node.rightBranch = temp;
                     return;
